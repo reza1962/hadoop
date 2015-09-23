@@ -1,5 +1,6 @@
 == HDFS and MapReduce sample
-This the copy of the Spring hadoop samples. I have add the functionality: 
+
+This is the copy of the Spring hadoop samples. I have add the functionality: 
 	. to work with Hortonworks ditribution 
 	. Security (Kerberos)
 
