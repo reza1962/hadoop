@@ -20,30 +20,29 @@ To install Kerberos:
 
 The user id musst be > 1000 see </br>
 	Ambari http://sandbox:8080/#/main/services/YARN/configs-> </br>
-		Advanced yarn-env -> </br>
-			Minimum user ID for submitting job</br>
+		Advanced yarn-env -> Minimum user ID for submitting job</br>
 
 +++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos
-Mine looks like:
+Mine looks like:</br>
+</br>
+[logging]</br>
+ default = FILE:/var/log/krb5libs.log</br>
+ kdc = FILE:/var/log/krb5kdc.log</br>
+ admin_server = FILE:/var/log/kadmind.log</br></br>
 
-[logging]
- default = FILE:/var/log/krb5libs.log
- kdc = FILE:/var/log/krb5kdc.log
- admin_server = FILE:/var/log/kadmind.log
-
-[libdefaults]
- default_realm = HORTONWORKS.COM
- dns_lookup_realm = false
- dns_lookup_kdc = false
- ticket_lifetime = 24h
- renew_lifetime = 7d
- forwardable = true
+[libdefaults]</br>
+ default_realm = HORTONWORKS.COM</br>
+ dns_lookup_realm = false</br>
+ dns_lookup_kdc = false</br>
+ ticket_lifetime = 24h</br>
+ renew_lifetime = 7d</br>
+ forwardable = true</br></br>
  
-[realms]
- HORTONWORKS.COM = {
-  kdc = sandbox.hortonworks.com
-  admin_server = sandbox.hortonworks.com
- }
+[realms]</br>
+ HORTONWORKS.COM = {</br>
+  kdc = sandbox.hortonworks.com</br>
+  admin_server = sandbox.hortonworks.com</br>
+ }</br>
  
 ++++++	
 	
