@@ -21,7 +21,7 @@ To install Kerberos:
 The user id musst be > 1000 see: </br>
 	Ambari http://sandbox:8080/#/main/services/YARN/configs --> Advanced yarn-env -> Minimum user ID for submitting job</br>
 
-+++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos
++++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos</br>
 Mine looks like:</br>
 </br>
 [logging]</br>
