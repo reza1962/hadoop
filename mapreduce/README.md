@@ -75,7 +75,7 @@ command="hadoop jar $BD_LOCAL_APP_DIR/$JAR_NAME $JAR_MAIN -libjars ${LIBJARS}  -
 echo "$command"</br>
 $command</br>
 	
-	4) check your Kerberos (if you activate it)
+	4) check your Kerberos
 		klist
 	5) init your ticket
 		kinit <user>
