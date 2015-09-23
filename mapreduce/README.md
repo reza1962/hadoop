@@ -51,10 +51,9 @@ Use the following commands to build and run the sample
 	$ cd mapreduce
     $ mvn clean package
 
-    $ scp -r target/ reza@sandbox.krb:/home/reza/multilix-hadoop-hbase/projects/mapreduce/target
-
+ 
 On Hortonworks-Server:
-	1) cd /home/reza/multilix-hadoop-hbase/projects/mapreduce/target
+	1) cd mapreduce/target
 	2) touch mr.sh
 	
 	3) Copy the folowing lines to the mr.sh
