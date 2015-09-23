@@ -1,10 +1,10 @@
 == HDFS and MapReduce sample
 
 This is the copy of the Spring hadoop samples. I have add the functionality: 
-	. to work with Hortonworks ditribution 
+	. to work with Hortonworks ditribution
 	. Security (Kerberos)
-
-See: 
+	
+See:
 	https://github.com/spring-projects/spring-hadoop/wiki/Sample-Projects
 	http://docs.spring.io/spring-hadoop/docs/2.1.2.RELEASE/reference/html/index.html
 	
@@ -16,8 +16,8 @@ see
 	application-context.xml if you have enabled kerberos
 	
 To install Kerberos:
-		https://github.com/abajwa-hw/security-workshops/blob/master/Setup-kerberos-Ambari.md
-
+	https://github.com/abajwa-hw/security-workshops/blob/master/Setup-kerberos-Ambari.md
+	
 +++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos
 Mine looks like:
 
@@ -33,12 +33,13 @@ Mine looks like:
  ticket_lifetime = 24h
  renew_lifetime = 7d
  forwardable = true
-
+ 
 [realms]
  HORTONWORKS.COM = {
   kdc = sandbox.hortonworks.com
   admin_server = sandbox.hortonworks.com
  }
+ 
 ++++++	
 	
 Use the following commands to build and run the sample
