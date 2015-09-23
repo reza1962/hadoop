@@ -17,7 +17,9 @@ see
 	
 To install Kerberos:
 	https://github.com/abajwa-hw/security-workshops/blob/master/Setup-kerberos-Ambari.md
-	
+
+The user id musst be > 1000 see Ambari for UID
+
 +++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos
 Mine looks like:
 
