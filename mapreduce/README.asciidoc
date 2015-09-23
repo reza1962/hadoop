@@ -43,10 +43,10 @@ Mine looks like:
 Use the following commands to build and run the sample
 *** Please adjust your path
 
-	$ cd mapreduce
-    $ mvn clean package
+$ cd mapreduce
+$ mvn clean package
 
-    $ scp -r target/ reza@sandbox.krb:/home/reza/multilix-hadoop-hbase/projects/mapreduce/target
+$ scp -r target/ reza@sandbox.krb:/home/reza/multilix-hadoop-hbase/projects/mapreduce/target
 
 On Hortonworks-Server:
 	1) cd /home/reza/multilix-hadoop-hbase/projects/mapreduce/target
