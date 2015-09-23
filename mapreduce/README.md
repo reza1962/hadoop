@@ -57,23 +57,23 @@ On Hortonworks-Server:
 	2) touch mr.sh
 	
 	3) Copy the folowing lines to the mr.sh
-	
+	</br>
 #!/bin/bash -x
-export JAR_NAME="multilix-hadoop-mapreduce-1.0.0.BUILD-SNAPSHOT.jar"
-export JAR_MAIN="com.multilix.hadoop.mapreduce.Wordcount"
-export BD_LOCAL_APP_DIR="/home/reza/multilix-hadoop-hbase/projects/mapreduce/target/appassembler/repo"
+export JAR_NAME="multilix-hadoop-mapreduce-1.0.0.BUILD-SNAPSHOT.jar"</br>
+export JAR_MAIN="com.multilix.hadoop.mapreduce.Wordcount"</br>
+export BD_LOCAL_APP_DIR="/home/reza/multilix-hadoop-hbase/projects/mapreduce/target/appassembler/repo"</br></br>
 
-export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/usr/hdp/current/hbase-client/lib/*:$BD_LOCAL_APP_DIR/*
-echo "HADOOP_CLASSPATH:$HADOOP_CLASSPATH"
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/usr/hdp/current/hbase-client/lib/*:$BD_LOCAL_APP_DIR/*</br>
+echo "HADOOP_CLASSPATH:$HADOOP_CLASSPATH"</br></br>
 
-export LIBJARS=/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-hadoop-compat.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/htrace-core.jar
+export LIBJARS=/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-hadoop-compat.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/htrace-core.jar</br>
 
-echo "LIBJARS:$LIBJARS"
+echo "LIBJARS:$LIBJARS"</br>
 
-command="hadoop jar $BD_LOCAL_APP_DIR/$JAR_NAME $JAR_MAIN -libjars ${LIBJARS}  -libDirsHdfs /user/reza/libMR/ -conf /etc/hbase/conf/hbase-site.xml  -logLevel DEBUG"
+command="hadoop jar $BD_LOCAL_APP_DIR/$JAR_NAME $JAR_MAIN -libjars ${LIBJARS}  -libDirsHdfs /user/reza/libMR/ -conf /etc/hbase/conf/hbase-site.xml  -logLevel DEBUG"</br></br>
 
-echo "$command"
-$command
+echo "$command"</br>
+$command</br>
 	
 	4) check your Kerberos (if you activate it)
 		klist
