@@ -83,13 +83,14 @@ $command
 	7) chmod -R 777 /hadoop/yarn/local/usercache/reza
 	8) sudo -u hdfs hdfs dfs -chmod 777 /user
 	9) hadoop fs -mkdir -p /user/reza/libMR
-   10) hadoop fs -mkdir -p /user/reza/input 
-   11) hadoop fs -copyFromLocal target/appassembler/data/nietzsche-chapter-1.txt  /user/reza/input 
-   12) hadoop fs -rm -r -skipTrash /user/reza/output/
-   13) hadoop fs -rm -r -skipTrash /user/reza/libMR/*.jar
-   14) hadoop fs -copyFromLocal target/appassembler/repo/*.jar /user/reza/libMR
-   15) sh mr.sh
-   16) hadoop fs -cat /user/reza/output/part-r-00000	
+	10) hadoop fs -mkdir -p /user/reza/input 
+	11) hadoop fs -copyFromLocal target/appassembler/data/nietzsche-chapter-1.txt  /user/reza/input
+	12) hadoop fs -rm -r -skipTrash /user/reza/output/
+	13) hadoop fs -rm -r -skipTrash /user/reza/libMR/*.jar
+	14) hadoop fs -copyFromLocal target/appassembler/repo/*.jar /user/reza/libMR
+	15) sh mr.sh
+	16) hadoop fs -cat /user/reza/output/part-r-00000
+	
 
 
 
