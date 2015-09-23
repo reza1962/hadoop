@@ -8,7 +8,7 @@ See:</br>
 	https://github.com/spring-projects/spring-hadoop/wiki/Sample-Projects</br>
 	http://docs.spring.io/spring-hadoop/docs/2.1.2.RELEASE/reference/html/index.html</br>
 	
-In this sample we will execute HDFS operations and a MapReduce job.  
+In this sample we will execute a MapReduce job.  
 The MapReduce job is the familiar wordcount job.  
 
 === Building and running
