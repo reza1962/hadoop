@@ -18,7 +18,10 @@ see
 To install Kerberos:
 	https://github.com/abajwa-hw/security-workshops/blob/master/Setup-kerberos-Ambari.md
 
-The user id musst be > 1000 see Ambari for UID
+The user id musst be > 1000 see 
+	Ambari http://sandbox:8080/#/main/services/YARN/configs-> 
+		Advanced yarn-env -> 
+			Minimum user ID for submitting job
 
 +++++++Check your vi /var/lib/ambari-server/resources/scripts/krb5.conf file to setup application-context.xml for kerberos
 Mine looks like:
