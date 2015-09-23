@@ -45,7 +45,7 @@ Mine looks like:</br>
  
 ++++++	
 	
-Use the following commands to build and run the sample
+Use the following commands to build and run the sample</br>
 *** Please adjust your path
 
 	$ cd mapreduce
@@ -57,7 +57,7 @@ On Hortonworks-Server:
 	2) touch mr.sh
 	
 	3) Copy the folowing lines to the mr.sh
-	</br>
+	
 #!/bin/bash -x
 export JAR_NAME="multilix-hadoop-mapreduce-1.0.0.BUILD-SNAPSHOT.jar"</br>
 export JAR_MAIN="com.multilix.hadoop.mapreduce.Wordcount"</br>
