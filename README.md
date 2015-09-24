@@ -8,5 +8,5 @@ See:</br>
 	https://github.com/spring-projects/spring-hadoop/wiki/Sample-Projects</br>
 	http://docs.spring.io/spring-hadoop/docs/2.1.2.RELEASE/reference/html/index.html
 
-Hadoop version:	
+Hadoop version:
 /usr/hdp/2.2.4.2-2/hadoop/hadoop-common-2.6.0.2.2.4.2-2.jar	
