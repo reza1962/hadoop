@@ -10,6 +10,7 @@ Start HBase in Ambari
 
 [root@sandbox ~]#$ su - hbase
 [hbase@sandbox ~]$ kinit -kt /etc/security/keytabs/hbase.service.keytab hbase/sandbox.hortonworks.com@HORTONWORKS.COM
+
 [root@sandbox ~]# su - hbase
 [hbase@sandbox ~]$ hbase shell
 hbase(main):004:0> grant  '<user>', 'RWXCA'
