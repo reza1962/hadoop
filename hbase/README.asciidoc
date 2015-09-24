@@ -1,0 +1,24 @@
+== Hbase example on Hortonworks with Kerberos
+
+Based on Spring-Hadoop
+
+=== Building and running
+
+Use the following commands to build and run the sample
+
+Start HBase in Ambari 
+
+[root@sandbox ~]#$ su - hbase
+[hbase@sandbox ~]$ kinit -kt /etc/security/keytabs/hbase.service.keytab hbase/sandbox.hortonworks.com@HORTONWORKS.COM
+[root@sandbox ~]# su - hbase
+[hbase@sandbox ~]$ hbase shell
+hbase(main):004:0> grant  '<user>', 'RWXCA'
+
+
+    $ mvn clean package
+    
+    To run the app. on host
+    $ scp -r target/ reza@sandbox.krb:/home/reza/multilix-hadoop-hbase/projects/hbase/target
+    
+    On Sandbox
+    <Sandbox>$ sh target/appassembler/bin/customer
