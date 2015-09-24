@@ -9,10 +9,10 @@ Use the following commands to build and run the sample
 Start HBase in Ambari 
 
 [root@sandbox ~]#$ su - hbase
-[hbase@sandbox ~]$ kinit -kt /etc/security/keytabs/hbase.service.keytab hbase/sandbox.hortonworks.com@HORTONWORKS.COM </br>
-[root@sandbox ~]# su - hbase </br>
-[hbase@sandbox ~]$ hbase shell </br>
-hbase(main):004:0> grant  '<user>', 'RWXCA' </br>
+[hbase@sandbox ~]$ kinit -kt /etc/security/keytabs/hbase.service.keytab hbase/sandbox.hortonworks.com@HORTONWORKS.COM
+[root@sandbox ~]# su - hbase
+[hbase@sandbox ~]$ hbase shell
+hbase(main):004:0> grant  '<user>', 'RWXCA'
 
 
     $ mvn clean package
