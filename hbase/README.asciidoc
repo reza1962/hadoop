@@ -9,6 +9,8 @@ Use the following commands to build and run the sample
 Start HBase in Ambari 
 
 [root@sandbox ~]#$ su - hbase
+
++++++++Check your /var/lib/ambari-server/resources/scripts/krb5.conf
 [hbase@sandbox ~]$ kinit -kt /etc/security/keytabs/hbase.service.keytab hbase/sandbox.hortonworks.com@HORTONWORKS.COM
 
 [root@sandbox ~]# su - hbase
