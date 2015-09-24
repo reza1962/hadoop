@@ -19,6 +19,7 @@
     <modules>
         <module>mapreduce</module>
         <module>hbase</module>
+        <module>mrhp</module>
     </modules>
 
     <dependencies>
