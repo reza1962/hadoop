@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+       xsi:schemaLocation="http://www.springframework.org/schema/integration/kafka 
+       http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd
+	http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+	http://www.springframework.org/schema/integration/stream
+      http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+
+	<int:publish-subscribe-channel id="inputToKafkaChannel"/>
+
+	<int-kafka:outbound-channel-adapter kafka-producer-context-ref="kafkaProducerContext"
+			auto-startup="false"
+			channel="inputToKafkaChannel"
+            order="1">
+	</int-kafka:outbound-channel-adapter>
+
+    <int-stream:stdout-channel-adapter id="stdout" append-newline="true"/>
+
+    <int:transformer order="0" ref="transactionTransformer" input-channel="inputToKafkaChannel" output-channel="stdout"/>
+
+    <bean id="transactionTransformer" class="com.multilix.kafka.msg.producer.TransactionTransformer"/>
+
+	<task:executor id="taskExecutor" pool-size="5" keep-alive="120" queue-capacity="500"/>
+
+    <!-- Not works, i use stringEncoder-->
+	<bean id="kafkaReflectionEncoder" class="org.springframework.integration.kafka.serializer.avro.AvroReflectDatumBackedKafkaEncoder">
+		<constructor-arg value="java.lang.String" />
+	</bean>
+
+    <bean id="stringEncoder" class="org.springframework.integration.kafka.serializer.common.StringEncoder"/>
+
+    <bean id="kafkaSpecificEncoder" class="org.springframework.integration.kafka.serializer.avro.AvroSpecificDatumBackedKafkaEncoder">
+		<constructor-arg value="com.multilix.kafka.transaction.Transaction" />
+	</bean>
+
+	<bean id="customPartitioner" class="com.multilix.kafka.msg.producer.CustomPartitioner"/>
+
+	<bean id="producerProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<prop key="topic.metadata.refresh.interval.ms">3600000</prop>
+				<prop key="message.send.max.retries">5</prop>
+				<prop key="send.buffer.bytes">5242880</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+	<int-kafka:producer-context id="kafkaProducerContext" producer-properties="producerProperties">
+		<int-kafka:producer-configurations>
+			<int-kafka:producer-configuration broker-list="${kafka.broker.list}"
+					key-class-type="java.lang.String"
+					value-class-type="com.multilix.kafka.transaction.Transaction"
+					topic="${kafka.transaction.msg.topic}"
+					value-encoder="kafkaSpecificEncoder"
+					key-encoder="stringEncoder"
+					partitioner="customPartitioner"/>
+
+		</int-kafka:producer-configurations>
+	</int-kafka:producer-context>
+</beans>

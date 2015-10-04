@@ -1,0 +1,9 @@
+@namespace("com.multilix.kafka.transaction")
+protocol TransactionProtocol{
+record Transaction {
+	string fromIBAN;
+	string toIBAN;
+	long   transactionTime;
+	double amount;
+}
+}
