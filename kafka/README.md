@@ -18,5 +18,5 @@ scp -r target/ <user>@sandbox.no.krb:/home/<user>/kafka/target</br>
 
 
 +++ To run on sandbox</br>
-sh target/appassembler/bin/transactionProducerApp
+sh target/appassembler/bin/transactionProducerApp</br>
 sh target/appassembler/bin/transactionConsumerApp
