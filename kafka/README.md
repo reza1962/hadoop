@@ -14,7 +14,7 @@ kafka-console-producer.sh --broker-list sandbox:6667 --topic transaction.topic</
 kafka-console-consumer.sh --zookeeper sandbox:2181 --topic transaction.topic --from-beginning</br>
 
 +++ Copy the target to the sandbox</br>
-scp -r target/ reza@sandbox.no.krb:/home/<user>/kafka/target</br>
+scp -r target/ <user>@sandbox.no.krb:/home/<user>/kafka/target</br>
 
 
 +++ To run on sandbox</br>
