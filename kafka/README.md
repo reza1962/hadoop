@@ -1,4 +1,4 @@
-A sample based on Spring-Integration, Avro and Kafka
+A sample App. based on Spring-Integration, Avro and Kafka
 
 Contains a message producer and message consumer
 
