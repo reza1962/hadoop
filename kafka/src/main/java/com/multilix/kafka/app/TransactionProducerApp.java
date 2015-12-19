@@ -7,15 +7,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.integration.kafka.support.KafkaHeaders;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
+import java.util.Properties; 
 
 import java.util.Date;
 
 public class TransactionProducerApp {
 	private static final String CONFIG = "/META-INF/spring/app-producer-context.xml";
 	private static final Log LOG = LogFactory.getLog(TransactionProducerApp.class);
-
+    	private static Properties properties;  
+    
 	public static void main(final String args[]) {
 		final ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(CONFIG, TransactionProducerApp.class);
+		properties = (Properties) ctx.getBean("properties");  
+        	kafkaTopic = properties.getProperty("KAFKA_TOPIC")  ; 
+		
 		ctx.start();
 
 		final MessageChannel channel = ctx.getBean("inputToKafkaChannel", MessageChannel.class);
@@ -32,7 +37,7 @@ public class TransactionProducerApp {
 
             channel.send(MessageBuilder.withPayload(transaction)
 							.setHeader("messageKey", String.valueOf(msgCount))
-							.setHeader(KafkaHeaders.TOPIC, "transaction.topic").build());
+							.setHeader(KafkaHeaders.TOPIC, kafkaTopic).build());
             msgCount++;
             LOG.info("message sent " + msgCount);
             try {
