@@ -53,7 +53,7 @@
 				value-decoder="kafkaSpecificDecoder"
 				key-decoder="kafkaReflectionDecoder" 
 				max-messages="5000">
-				<int-kafka:topic id="transaction.topic" streams="10" />
+				<int-kafka:topic id="${kafka.fahrt.msg.topic}" streams="10" />
 			</int-kafka:consumer-configuration>
 
 		</int-kafka:consumer-configurations>
