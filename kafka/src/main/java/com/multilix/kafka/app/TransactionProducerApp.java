@@ -36,7 +36,7 @@ public class TransactionProducerApp {
             msgCount++;
             LOG.info("message sent " + msgCount);
             try {
-                Thread.sleep(6000); // Six seconds
+                Thread.sleep(1000); // Six seconds
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
